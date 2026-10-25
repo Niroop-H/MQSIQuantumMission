@@ -201,3 +201,14 @@
  .site-header .wordmark-text small{font-size:7px;letter-spacing:.045em}
 }
 @media(max-width:390px){.site-header .wordmark-logo-crop{flex-basis:44px;width:44px;height:44px}.site-header .wordmark-logo-crop img{width:235px;height:50px}.site-header .wordmark-text strong{font-size:18px}.site-header .wordmark-text small{font-size:6px}}
+
+/* Final MQSI brand lockup: supplied logo artwork left, mission name to its right. */
+.site-header .wordmark-exact{display:flex;align-items:center;gap:13px;width:auto;max-width:none;flex:0 1 auto;min-width:0}
+.site-header .wordmark-logo-crop{position:relative;display:block;flex:0 0 138px;width:138px;height:78px;overflow:hidden;border-radius:0;background:transparent}
+.site-header .wordmark-logo-crop img{position:absolute;left:0;top:0;display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;border-radius:0;transform:none}
+.site-header .wordmark-text{display:flex;flex-direction:column;gap:4px;white-space:nowrap}
+.site-header .wordmark-text strong{font-size:23px;line-height:1.05;letter-spacing:.095em}
+.site-header .wordmark-text small{font-size:8px;line-height:1.4;letter-spacing:.06em;font-family:var(--mono)}
+@media(max-width:1100px){.site-header .wordmark-logo-crop{flex-basis:112px;width:112px;height:63px}.site-header .wordmark-text strong{font-size:20px}.site-header .wordmark-text small{font-size:7px}}
+@media(max-width:760px){.site-header .wordmark-exact{gap:8px}.site-header .wordmark-logo-crop{flex-basis:80px;width:80px;height:46px}.site-header .wordmark-text strong{font-size:17px}.site-header .wordmark-text small{font-size:6px;letter-spacing:.02em}}
+@media(max-width:390px){.site-header .wordmark-logo-crop{flex-basis:60px;width:60px;height:34px}.site-header .wordmark-text strong{font-size:15px}.site-header .wordmark-text small{font-size:5px}}
