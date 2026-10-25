@@ -22,3 +22,16 @@
 @media(min-width:1200px){.hero{padding-left:max(6.5%,calc((100vw - 1320px)/2));padding-right:max(6.5%,calc((100vw - 1320px)/2))}}
 @media(max-width:1000px) and (min-width:761px){.hero{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);column-gap:28px;padding-left:5%;padding-right:5%}.hero h1.mission-title{font-size:clamp(34px,4vw,46px)}.hero h1.mission-title em{font-size:.65em}.hero-art{padding:0}.hero-copy{padding-right:0}}
 @media(max-width:760px){.hero{grid-template-columns:minmax(0,1fr);column-gap:0;align-items:stretch;padding-top:43px}.hero-copy{max-width:620px;padding:4px 0 22px}.hero-art{max-width:590px;padding:0;margin:0 auto}.hero h1.mission-title{font-size:clamp(32px,8vw,47px);line-height:1.12;letter-spacing:-.015em;margin:23px 0 18px}.hero h1.mission-title em{font-size:.67em;letter-spacing:.08em;white-space:normal}.hero-footer{gap:12px}.section-pad{max-width:none}}
+
+/* Hero composition: keep mission copy and quantum artwork aligned side-by-side */
+.hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;align-items:center;column-gap:clamp(28px,4.5vw,72px);padding-top:56px}
+.hero-copy{grid-column:1;grid-row:1;align-self:center;justify-self:stretch;width:100%;max-width:620px;padding:0 0 34px;min-width:0}
+.hero-art{grid-column:2;grid-row:1;align-self:center;justify-self:stretch;width:100%;max-width:620px;min-width:0;padding:0 0 24px}
+.hero .art-topline{margin-bottom:10px}
+.hero .orbit-art{display:block;width:100%;height:auto;max-height:500px;margin:0 auto}
+.hero .art-caption{margin-top:4px}
+.hero-footer{grid-column:1/-1;grid-row:2}
+.hero h1.mission-title{font-size:clamp(34px,3.7vw,58px);line-height:1.12;margin:24px 0 20px;letter-spacing:-.02em}
+.hero h1.mission-title em{font-size:.66em;letter-spacing:.095em;white-space:normal}
+@media(max-width:1000px) and (min-width:761px){.hero{column-gap:24px;padding-left:5%;padding-right:5%;padding-top:40px}.hero h1.mission-title{font-size:clamp(31px,3.5vw,43px)}.hero-art{padding-bottom:12px}.hero .orbit-art{max-height:420px}.hero-copy{padding-bottom:20px}}
+@media(max-width:760px){.hero{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;row-gap:12px;padding-top:40px}.hero-copy{grid-column:1;grid-row:1;padding:0 0 12px}.hero-art{grid-column:1;grid-row:2;max-width:570px;padding:0 0 8px}.hero-footer{grid-column:1;grid-row:3}.hero .orbit-art{max-height:none}.hero h1.mission-title{font-size:clamp(32px,8vw,47px)}}
