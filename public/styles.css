@@ -35,3 +35,8 @@
 .hero h1.mission-title em{font-size:.66em;letter-spacing:.095em;white-space:normal}
 @media(max-width:1000px) and (min-width:761px){.hero{column-gap:24px;padding-left:5%;padding-right:5%;padding-top:40px}.hero h1.mission-title{font-size:clamp(31px,3.5vw,43px)}.hero-art{padding-bottom:12px}.hero .orbit-art{max-height:420px}.hero-copy{padding-bottom:20px}}
 @media(max-width:760px){.hero{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;row-gap:12px;padding-top:40px}.hero-copy{grid-column:1;grid-row:1;padding:0 0 12px}.hero-art{grid-column:1;grid-row:2;max-width:570px;padding:0 0 8px}.hero-footer{grid-column:1;grid-row:3}.hero .orbit-art{max-height:none}.hero h1.mission-title{font-size:clamp(32px,8vw,47px)}}
+
+/* Header brand: MQSI wordmark replaces generic atom badge */
+.wordmark-logo{width:54px;height:48px;display:flex;align-items:center;justify-content:center;background:transparent;border-radius:0;color:#26342e;font-family:var(--sans);font-size:19px;line-height:1;font-weight:800;letter-spacing:-.065em;flex:0 0 auto;border-right:1px solid #c9c8bd;padding-right:12px}
+.wordmark{gap:13px}
+@media(max-width:760px){.wordmark-logo{width:46px;height:40px;font-size:17px;padding-right:9px}.wordmark{gap:10px}}
