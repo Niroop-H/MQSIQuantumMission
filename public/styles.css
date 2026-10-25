@@ -159,3 +159,18 @@
 .wordmark-symbol{overflow:hidden;background:transparent;border:1px solid rgba(222,184,102,.55);flex:0 0 49px;width:49px;height:49px;border-radius:50%}
 .wordmark-symbol img{display:block;width:100%;height:100%;object-fit:contain;border-radius:50%}
 @media(max-width:760px){.hero-cinematic{display:flex;flex-direction:column;gap:14px}.hero-cinematic .hero-copy,.hero-cinematic .hero-art{width:100%;grid-column:auto;grid-row:auto}.hero-cinematic .hero-footer{width:100%}}
+
+/* Fix the first viewport: remove dependency on the missing mqsi-hero.jpg asset,
+   keep the hero geometry stable, and use a layered photographic-style atmosphere. */
+.hero-cinematic{background-color:#07110f;background-image:radial-gradient(ellipse at 73% 45%,rgba(112,139,119,.17) 0%,rgba(24,49,40,.09) 31%,transparent 57%),radial-gradient(ellipse at 12% 12%,rgba(46,78,65,.22),transparent 38%),linear-gradient(112deg,#07100e 0%,#101e19 49%,#07100e 100%)}
+.hero-cinematic .hero-backdrop{background-image:radial-gradient(circle at 72% 43%,rgba(201,171,108,.09) 0 1px,transparent 2px),radial-gradient(circle at 80% 26%,rgba(193,207,191,.13) 0 1px,transparent 2px),radial-gradient(circle at 63% 68%,rgba(201,171,108,.12) 0 1px,transparent 2px),linear-gradient(120deg,transparent 0%,rgba(126,153,134,.045) 48%,transparent 72%);background-size:100% 100%,100% 100%,100% 100%,100% 100%}
+.hero-cinematic .hero-shade{background:linear-gradient(90deg,rgba(3,10,9,.32),rgba(3,10,9,.06) 55%,rgba(3,10,9,.25)),linear-gradient(0deg,rgba(3,9,8,.46),transparent 24%,transparent 76%,rgba(2,9,9,.22))}
+.hero-cinematic .hero-copy{max-width:560px}
+.hero-cinematic .mission-title{font-size:clamp(42px,4.1vw,68px);line-height:1.06;letter-spacing:-.05em;overflow-wrap:normal}
+.hero-cinematic .quantum-stage-cinematic{min-height:0;height:clamp(430px,43vw,650px);max-height:none;aspect-ratio:1.05/1}
+.hero-cinematic .hero-art{align-self:center}
+.site-header .wordmark-symbol svg{display:none}
+.site-header .wordmark-symbol{position:relative;background:transparent;border:1px solid rgba(222,184,102,.72)}
+.site-header .wordmark-symbol:after{content:"MQSI";font-family:var(--sans);font-size:9px;font-weight:800;letter-spacing:-.04em;color:#e8bd72}
+@media(max-width:1000px){.hero-cinematic .quantum-stage-cinematic{height:clamp(360px,48vw,500px)}}
+@media(max-width:760px){.hero-cinematic .quantum-stage-cinematic{height:clamp(320px,90vw,460px);aspect-ratio:1/1}.hero-cinematic .mission-title{font-size:clamp(40px,10vw,58px)}}
