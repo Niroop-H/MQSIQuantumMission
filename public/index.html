@@ -44,29 +44,18 @@
       </div>
       <div class="hero-art" role="img" aria-label="Original quantum orbital illustration representing quantum learning and experimentation">
         <div class="art-topline"><span>QUANTUM, IN PRACTICE</span><span>01 / 04</span></div>
-        <svg class="orbit-art" viewBox="0 0 620 570" role="img" aria-labelledby="orbit-title">
-          <title id="orbit-title">Orbital paths surrounding a quantum-inspired central form</title>
-          <defs>
-            <radialGradient id="core" cx="38%" cy="28%" r="82%"><stop offset="0" stop-color="#f9df8a"/><stop offset=".45" stop-color="#e9a54b"/><stop offset="1" stop-color="#a44e2d"/></radialGradient>
-            <linearGradient id="orbit1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ffce68"/><stop offset=".55" stop-color="#f7efe0" stop-opacity=".8"/><stop offset="1" stop-color="#a7d6d0"/></linearGradient>
-            <filter id="soft"><feGaussianBlur stdDeviation="10"/></filter>
-          </defs>
-          <circle cx="312" cy="278" r="165" fill="#e9b04a" opacity=".10" filter="url(#soft)"/>
-          <g fill="none" stroke-linecap="round">
-            <ellipse cx="310" cy="274" rx="234" ry="91" stroke="url(#orbit1)" stroke-width="1.5" transform="rotate(-31 310 274)"/>
-            <ellipse cx="310" cy="274" rx="234" ry="91" stroke="#f5e8d6" stroke-width="1.2" opacity=".78" transform="rotate(36 310 274)"/>
-            <ellipse cx="310" cy="274" rx="224" ry="104" stroke="#dd9f58" stroke-width="1.1" opacity=".7" transform="rotate(88 310 274)"/>
-            <ellipse cx="310" cy="274" rx="193" ry="68" stroke="#f4d3a5" stroke-width=".8" opacity=".65" transform="rotate(-62 310 274)"/>
-          </g>
-          <g stroke="#f7f0e4" stroke-width="1" opacity=".2"><path d="M54 274h512M310 30v488"/><circle cx="310" cy="274" r="135" stroke-dasharray="3 8"/><circle cx="310" cy="274" r="185" stroke-dasharray="2 10"/></g>
-          <circle cx="310" cy="274" r="76" fill="url(#core)"/>
-          <circle cx="310" cy="274" r="76" fill="none" stroke="#ffe6a9" stroke-width="1.4" opacity=".9"/>
-          <path d="M274 279c18-26 49-44 78-29 15 9 18 30 6 44-14 16-42 18-63 8-20-9-36-29-24-49 9-15 29-23 49-20" fill="none" stroke="#fff0bd" stroke-width="2" stroke-linecap="round" opacity=".8"/>
-          <circle cx="280" cy="249" r="5" fill="#fff2cb"/><circle cx="352" cy="302" r="4" fill="#f6d58b"/>
-          <g fill="#f5d58c"><circle cx="124" cy="139" r="5"/><circle cx="492" cy="174" r="4"/><circle cx="179" cy="435" r="4"/><circle cx="491" cy="399" r="6"/></g>
-          <g fill="#f7f1e8" font-family="DM Mono, monospace" font-size="10" letter-spacing="2"><text x="57" y="99">QUBITS</text><text x="434" y="116">POSSIBILITY</text><text x="433" y="462">REAL-WORLD</text><text x="433" y="476">EXPERIMENTS</text></g>
-          <g stroke="#f7f1e8" stroke-width=".8" opacity=".65"><path d="M94 110l30 29M467 124l25 45M456 410l35-11"/></g>
-        </svg>
+        <div class="quantum-stage">
+          <canvas class="quantum-canvas" aria-label="Interactive three-dimensional quantum orbital model. Drag to rotate the model." role="img"></canvas>
+          <div class="quantum-overlay quantum-overlay-top">3D ORBITAL SYSTEM <span>LIVE MODEL</span></div>
+          <div class="quantum-overlay quantum-overlay-left">QUBITS</div>
+          <div class="quantum-overlay quantum-overlay-right">POSSIBILITY</div>
+          <div class="quantum-overlay quantum-overlay-bottom">REAL-WORLD EXPERIMENTS</div>
+          <div class="quantum-controls">
+            <span class="drag-hint"><span class="drag-glyph">↻</span> DRAG TO ROTATE</span>
+            <button class="motion-toggle" type="button" aria-pressed="false">Pause motion</button>
+            <button class="motion-reset" type="button" aria-label="Reset model rotation">Reset ↺</button>
+          </div>
+        </div>
         <div class="art-caption"><span class="caption-index">01</span><span>From learning quantum concepts<br>to running real quantum experiments.</span><span class="caption-arrow">↗</span></div>
       </div>
       <div class="hero-footer"><span>EDUCATION · RESEARCH · INDUSTRY</span><span>BUILT FOR THE NEXT GENERATION OF ENGINEERS</span></div>
