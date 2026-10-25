@@ -1,13 +1,12 @@
 # MQSI International Quantum Mission
 
-A single-page, scroll-driven website for the MQSI International Quantum Mission, led by the MQSI Advanced Research Community and powered by MAH Quantum.
+A polished, single-page website for the MQSI International Quantum Mission, led by the MQSI Advanced Research Community and powered by MAH Quantum.
 
 ## Run locally
 
 Requires Node.js 18 or later.
 
 ```bash
-npm install
 npm run dev
 ```
 
@@ -20,13 +19,15 @@ npm run build
 npm start
 ```
 
+The project has no runtime npm dependencies. `npm run build` copies the static website into `dist/`; `npm start` serves `dist/` in production when it exists, otherwise it serves `public/`.
+
 ## Deploy
 
-This project runs as a standard Node.js app. It can be deployed to Render, Railway, a Node-enabled host, or adapted for Vercel.
+Deploy as a standard Node.js project on a Node-enabled hosting provider. Set the start command to `npm start` and ensure the host runs `npm run build` during its build step. Configure the host's Node version to 18 or newer.
 
-## Important programme notes
+## Programme notes
 
-- The MQSI institutional subscription is US$500 per year.
-- IBM Quantum Classroom Accounts are requested from and approved by IBM. The Mission supports institutions with curriculum integration and practical learning; it does not guarantee IBM approval or hardware allocations.
-- Classroom Accounts are intended for educator-led classes, generally supporting 5–100 students. IBM's current published terms describe 10 minutes of system usage per student each month and a 365-day validity period. Confirm current terms directly with IBM before applying.
-- Individual students and researchers can join the MQSI Advanced Research Community to follow developments and participate in community discussions. University subscription is for institutional participation in the Mission, not a prerequisite for students to join the WhatsApp community.
+- Institutional subscription: US$500 per year.
+- IBM independently controls Classroom Account eligibility, approval, hardware allocation and access conditions. The Mission does not guarantee that any institution will be approved.
+- IBM's current Classroom Accounts page describes educator-led groups of 5–100 students, 10 minutes of QPU usage per student per 28-day rolling window and a 365-day validity period. Check IBM's official terms before applying.
+- Students and individual researchers may join the MQSI Advanced Research Community WhatsApp group without paying the institutional subscription.
