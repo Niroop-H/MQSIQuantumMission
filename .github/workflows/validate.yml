@@ -1,0 +1,45 @@
+name: Validate and publish-ready check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check JavaScript syntax
+        run: npm run check
+      - name: Build production site
+        run: npm run build
+      - name: Verify required production files
+        run: |
+          test -s dist/index.html
+          test -s dist/styles.css
+          test -s dist/script.js
+          test -s dist/favicon.svg
+      - name: Smoke-test HTTP server
+        run: |
+          NODE_ENV=production PORT=4173 node server.js > /tmp/mqsi-server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+          for i in $(seq 1 20); do
+            if curl --fail --silent http://127.0.0.1:4173/ -o /tmp/mqsi-index.html; then break; fi
+            sleep 1
+          done
+          grep -q "MQSI International Quantum Mission" /tmp/mqsi-index.html
+          curl --fail --silent http://127.0.0.1:4173/styles.css | grep -q "hero"
+          curl --fail --silent http://127.0.0.1:4173/script.js | grep -q "menu-toggle"
+          echo "Node server smoke test passed."
