@@ -97,3 +97,17 @@
 @media(max-width:1000px) and (min-width:761px){.hero{grid-template-columns:minmax(280px,.83fr) minmax(0,1.17fr);padding:38px 4% 0;column-gap:24px}.hero h1.mission-title{font-size:clamp(38px,4.2vw,52px)}.quantum-stage{min-height:330px}.quantum-overlay{font-size:7px}.quantum-overlay small{font-size:7px}}
 @media(max-width:760px){.hero{min-height:0;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;padding:34px 6% 0;row-gap:8px}.hero-copy{padding:18px 0 20px}.hero h1.mission-title{font-size:clamp(42px,11vw,62px);line-height:1.04;margin:22px 0}.hero-art{grid-column:1;grid-row:2;padding:0;min-height:0}.quantum-stage{aspect-ratio:1/1;min-height:0;max-height:none}.quantum-overlay{font-size:8px}.quantum-overlay-left{left:1%;top:23%}.quantum-overlay-right{right:1%;top:25%;max-width:105px}.quantum-overlay-bottom{bottom:19%;max-width:100px;font-size:7px}.quantum-overlay small{font-size:7px}.quantum-controls{gap:6px}.drag-hint{font-size:7px;max-width:42%}.motion-toggle,.motion-reset{padding:8px 7px;font-size:8px}.art-caption{padding:12px 2%}.hero-footer{gap:15px;font-size:7px;line-height:1.7}}
 @media(prefers-reduced-motion:reduce){.hero *{scroll-behavior:auto}}
+
+/* Cinematic optics pass: quieter panel edges, deeper material response, more precise controls */
+.quantum-stage{background:radial-gradient(ellipse at 50% 47%,rgba(97,119,101,.12),rgba(13,24,18,.05) 48%,rgba(4,10,7,.12) 100%);border:1px solid rgba(199,216,202,.055);box-shadow:inset 0 0 90px rgba(2,8,5,.14);overflow:hidden}
+.quantum-canvas{filter:contrast(1.08) saturate(.72) brightness(.94)}
+.quantum-stage:before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(115deg,rgba(230,220,190,.025),transparent 30%,transparent 68%,rgba(93,150,140,.025));mix-blend-mode:screen}
+.quantum-overlay{font-size:8px;letter-spacing:.18em;color:#d1d8cc}
+.quantum-overlay-top{top:3.4%;left:3%;right:3%}
+.quantum-overlay-top span{color:#d6b273}
+.quantum-overlay small{color:#a9b9ac;font-size:7px;letter-spacing:.14em}
+.quantum-controls{background:linear-gradient(180deg,transparent,rgba(7,15,11,.3));backdrop-filter:blur(3px)}
+.drag-hint{letter-spacing:.12em}
+.motion-toggle,.motion-reset{letter-spacing:.01em;border-color:rgba(191,207,194,.3);background:rgba(12,22,16,.65)}
+.art-caption{letter-spacing:.04em}
+@media(max-width:760px){.quantum-stage{border-left:0;border-right:0}.quantum-overlay{letter-spacing:.12em}.quantum-overlay small{letter-spacing:.08em}}
