@@ -1,4 +1,5 @@
 const menuButton = document.querySelector(".menu-toggle");
+const pageRoot = document.documentElement;
 const nav = document.querySelector(".desktop-nav");
 if (menuButton && nav) {
   menuButton.addEventListener("click", () => {
