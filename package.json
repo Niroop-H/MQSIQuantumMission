@@ -1,0 +1,16 @@
+{
+  "name": "mqsi-international-quantum-mission",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official single-page website for the MQSI International Quantum Mission",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js",
+    "build": "node scripts/build.js",
+    "check": "node --check server.js && node --check scripts/build.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
