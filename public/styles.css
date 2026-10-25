@@ -5,3 +5,6 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
 .skip-link{position:absolute;left:12px;top:-60px;z-index:100;padding:12px 16px;background:#f2d18e;color:#26342e;font-weight:800;font-size:12px}.skip-link:focus{top:12px}
+
+/* MQSI mission identity update */
+.hero h1.mission-title{font-size:clamp(38px,4.3vw,66px);line-height:1.12;letter-spacing:.015em;font-weight:800;text-transform:uppercase;max-width:690px;margin-top:29px;margin-bottom:25px}.hero h1.mission-title em{font-family:var(--sans);font-style:normal;font-size:.72em;letter-spacing:.12em;font-weight:600;color:#e8bd72}@media(max-width:700px){.hero h1.mission-title{font-size:clamp(32px,8.5vw,48px);letter-spacing:0;line-height:1.16}.hero h1.mission-title em{font-size:.74em;letter-spacing:.08em}}
