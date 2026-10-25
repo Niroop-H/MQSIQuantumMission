@@ -45,7 +45,7 @@ if (year) year.textContent = new Date().getFullYear();
   const ctx=canvas.getContext("2d",{alpha:true});if(!ctx)return;
   const stage=canvas.closest(".quantum-stage"),pauseButton=stage.querySelector(".motion-toggle"),resetButton=stage.querySelector(".motion-reset");
   const reduced=matchMedia("(prefers-reduced-motion: reduce)");
-  const S={yaw:-.32,pitch:-.2,spin:0,paused:reduced.matches,drag:false,px:0,py:0,w:1,h:1,dpr:1,last:0};
+  const S={yaw:-.32,pitch:-.2,spin:0,paused:true,drag:false,px:0,py:0,w:1,h:1,dpr:1,last:0};
   let dust=[];
   const ORBITS=[
     {a:1.01,b:.315,yaw:.16,pitch:.14,roll:-.52,color:[211,173,111],alpha:.8,width:1.25,glow:5},
@@ -83,8 +83,8 @@ if (year) year.textContent = new Date().getFullYear();
     ctx.restore();}
   function nodes(time){for(const n of NODES){const d=ORBITS[n.o],p=pt(d,n.t+S.spin*(n.o%2?-.5:.7),n.o),depth=Math.max(.35,Math.min(1.4,.8+p.z*.28)),rr=n.r*depth;ctx.save();ctx.globalAlpha=n.a*(p.z<-.1?.48:1);const g=ctx.createRadialGradient(p.x-rr*.4,p.y-rr*.4,.1,p.x,p.y,rr*3.5);g.addColorStop(0,"#fff5d9");g.addColorStop(.2,n.o%2?"#a8cfc7":"#e5c07c");g.addColorStop(.55,rgba(d.color,.5));g.addColorStop(1,rgba(d.color,0));ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.x,p.y,rr*3.5,0,Math.PI*2);ctx.fill();ctx.restore();}}
   function annotations(){const cx=S.w/2,cy=S.h*.48,r=Math.min(S.w,S.h)*.39;ctx.save();ctx.lineWidth=.6;ctx.strokeStyle="rgba(199,216,203,.27)";[[cx-r*.75,cy-r*.5,cx-r*1.05,cy-r*.72],[cx+r*.68,cy-r*.58,cx+r*.94,cy-r*.81],[cx+r*.72,cy+r*.56,cx+r*1.01,cy+r*.69]].forEach(p=>{ctx.beginPath();ctx.moveTo(p[0],p[1]);ctx.lineTo(p[2],p[3]);ctx.lineTo(p[2]+(p[0]<cx?-18:18),p[3]);ctx.stroke();ctx.fillStyle="rgba(219,197,150,.8)";ctx.beginPath();ctx.arc(p[0],p[1],1.5,0,Math.PI*2);ctx.fill();});ctx.restore();}
-  function render(t){if(!S.paused&&!S.drag)S.spin+=Math.min(32,t-(S.last||t))*.000105;S.last=t;ctx.clearRect(0,0,S.w,S.h);atmosphere(t);calibration();ORBITS.forEach(orbit);core(t);nodes(t);annotations();requestAnimationFrame(render);}
+  function render(t){if(!S.paused&&!S.drag)S.spin+=Math.min(32,t-(S.last||t))*.000105;S.last=t;ctx.clearRect(0,0,S.w,S.h);atmosphere(t);calibration();ORBITS.forEach(orbit);core(t);nodes(t);annotations();if(!S.paused)requestAnimationFrame(render);}
   function sync(){pauseButton.textContent=S.paused?"Resume motion":"Pause motion";pauseButton.setAttribute("aria-pressed",String(S.paused));}
-  pauseButton.addEventListener("click",()=>{S.paused=!S.paused;sync();});resetButton.addEventListener("click",()=>{S.yaw=-.32;S.pitch=-.2;S.spin=0;});
+  pauseButton.addEventListener("click",()=>{S.paused=!S.paused;sync();if(!S.paused)requestAnimationFrame(render);});resetButton.addEventListener("click",()=>{S.yaw=-.32;S.pitch=-.2;S.spin=0;});
   canvas.addEventListener("pointerdown",e=>{S.drag=true;S.px=e.clientX;S.py=e.clientY;canvas.setPointerCapture(e.pointerId);});canvas.addEventListener("pointermove",e=>{if(!S.drag)return;S.yaw+=(e.clientX-S.px)*.006;S.pitch=Math.max(-1.05,Math.min(1.05,S.pitch+(e.clientY-S.py)*.006));S.px=e.clientX;S.py=e.clientY;});const stop=()=>S.drag=false;canvas.addEventListener("pointerup",stop);canvas.addEventListener("pointercancel",stop);reduced.addEventListener?.("change",e=>{if(e.matches){S.paused=true;sync();}});sync();requestAnimationFrame(render);
 })();
