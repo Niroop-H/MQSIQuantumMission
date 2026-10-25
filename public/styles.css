@@ -40,3 +40,24 @@
 .wordmark-logo{width:54px;height:48px;display:flex;align-items:center;justify-content:center;background:transparent;border-radius:0;color:#26342e;font-family:var(--sans);font-size:19px;line-height:1;font-weight:800;letter-spacing:-.065em;flex:0 0 auto;border-right:1px solid #c9c8bd;padding-right:12px}
 .wordmark{gap:13px}
 @media(max-width:760px){.wordmark-logo{width:46px;height:40px;font-size:17px;padding-right:9px}.wordmark{gap:10px}}
+
+/* Experimental interactive 3D quantum model — revertable in Git */
+.quantum-stage{position:relative;width:100%;aspect-ratio:1/1;min-height:360px;max-height:570px;isolation:isolate;touch-action:pan-y;overflow:hidden}
+.quantum-canvas{display:block;width:100%;height:100%;cursor:grab;outline:none}
+.quantum-canvas:active{cursor:grabbing}
+.quantum-canvas:focus-visible{outline:1px solid #e8bd72;outline-offset:-5px}
+.quantum-overlay{position:absolute;z-index:2;pointer-events:none;font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:#f4e7c9;text-shadow:0 1px 8px #15221c}
+.quantum-overlay-top{top:4%;left:4%;right:4%;display:flex;justify-content:space-between;color:#b5c3b3}
+.quantum-overlay-top span{color:#e6bd70}
+.quantum-overlay-left{top:27%;left:5%}
+.quantum-overlay-right{top:30%;right:4%}
+.quantum-overlay-bottom{right:4%;bottom:17%;max-width:125px;line-height:1.7;text-align:right}
+.quantum-controls{position:absolute;left:4%;right:4%;bottom:3%;display:flex;align-items:center;gap:9px;z-index:3;border-top:1px solid #ffffff2c;padding-top:12px}
+.drag-hint{margin-right:auto;display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:#b8c4b6}
+.drag-glyph{font-size:17px;color:#e8bd72}
+.motion-toggle,.motion-reset{border:1px solid #ffffff38;background:#26342e99;color:#f6f1e7;padding:8px 10px;font-size:9px;cursor:pointer;transition:background .2s,border-color .2s}
+.motion-toggle:hover,.motion-reset:hover{background:#ffffff12;border-color:#e8bd72}
+.motion-toggle:focus-visible,.motion-reset:focus-visible{outline:2px solid #e8bd72;outline-offset:2px}
+@media(max-width:1000px){.quantum-stage{min-height:310px}.quantum-overlay{font-size:8px}}
+@media(max-width:760px){.quantum-stage{aspect-ratio:1/1;min-height:0;max-height:none}.quantum-overlay-left{left:2%}.quantum-overlay-right{right:2%}.quantum-overlay-bottom{bottom:18%;max-width:110px}.quantum-controls{gap:6px}.motion-toggle,.motion-reset{padding:8px 7px;font-size:8px}.drag-hint{font-size:7px}}
+@media(prefers-reduced-motion:reduce){.quantum-canvas{cursor:grab}}
